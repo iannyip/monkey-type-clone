@@ -1,0 +1,138 @@
+.passage-selector {
+  background-color: #8f8f8f47;
+  border-radius: 10px;
+  height: 3rem;
+  line-height: 3rem;
+  width: 300px;
+  margin-top: 10px;
+  font-size: 0.8em;
+  text-align: center;
+  vertical-align: middle;
+  transition: background-color 1s;
+}
+
+.passage-selector:hover {
+  background-color: #8f8f8f8f;
+  cursor: pointer;
+}
+
+.menu {
+  background-color: rgba(255, 255, 255, 0.279);
+  border-radius: 10px;
+  height: 10rem;
+  line-height: 3rem;
+  width: 300px;
+  overflow: scroll;
+}
+
+.primary-menu-item {
+  font-size: 1rem;
+  width: 100%;
+  line-height: 1em;
+  padding: 10px 0px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  transition: background-color 0.5s;
+}
+
+.primary-menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+}
+
+.primary-menu-text {
+  width: 100%;
+}
+
+.primary-menu-arrow {
+  position: absolute;
+  right: 20px;
+}
+.secondary-menu-container {
+}
+
+.secondary-menu {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+.secondary-menu-item {
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.529);
+  margin: 3px;
+  font-size: 0.9rem;
+  text-align: center;
+  line-height: 30px;
+  transition: background 1s;
+}
+
+.secondary-menu-item:hover {
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.529);
+}
+
+.type-container {
+  max-width: 80%;
+  min-width: 500px;
+  height: 30vh;
+}
+
+.passage-container {
+  color: black;
+  height: 120px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.progress {
+  color: #b78832;
+  text-align: left;
+  margin: 15px 5px;
+}
+
+.word {
+  display: flex;
+  color: #808080;
+  margin: 4px 5px;
+}
+
+.letter {
+  position: relative;
+}
+
+.correct {
+  color: #d1d0c5;
+}
+
+.wrong {
+  color: #ca4754;
+}
+
+.cursor {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 14px;
+  top: 3px;
+  width: 2px;
+  height: 1.8rem;
+  background-color: white;
+  animation: 1s fadeInOut infinite;
+}
+
+@keyframes fadeInOut {
+  0% {
+    background: transparent;
+  }
+  50% {
+    background: #fff;
+  }
+  100% {
+    background: transparent;
+  }
+}
