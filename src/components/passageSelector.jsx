@@ -75,9 +75,10 @@ export default function PassageSelector({ reference, updateReference }) {
 
   return (
     <>
-      {showMenu && (
-        <div className='menu'>
-          {primaryMenuItems.map((book, index) => (
+      {/* {showMenu && ( */}
+      <div className={showMenu ? 'menu-open' : 'menu-close'}>
+        {showMenu &&
+          primaryMenuItems.map((book, index) => (
             <PrimaryMenuItem
               key={(index, book.name)}
               name={book.name}
@@ -85,8 +86,8 @@ export default function PassageSelector({ reference, updateReference }) {
               updateReference={updateReference}
             />
           ))}
-        </div>
-      )}
+      </div>
+      {/* )} */}
       <div className='passage-selector' onClick={menuClickHandler}>
         {reference}
       </div>

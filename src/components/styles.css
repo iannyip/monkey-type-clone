@@ -16,7 +16,7 @@
   cursor: pointer;
 }
 
-.menu {
+.menu-open {
   background-color: rgba(255, 255, 255, 0.279);
   border-radius: 10px;
   height: 10rem;
@@ -25,12 +25,14 @@
   overflow: scroll;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
-  /* transition: all 2s; */
-  animation: 0.6s slide-up ease;
-  /* margin-top: 10%; */
+  animation: 0.6s slideup ease;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.menu-open::-webkit-scrollbar {
+  display: none;
 }
 
-@keyframes slide-up {
+@keyframes slideup {
   0% {
     opacity: 0;
     height: 0rem;
@@ -41,9 +43,26 @@
   }
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-.menu::-webkit-scrollbar {
-  display: none;
+.menu-close {
+  background-color: rgba(255, 255, 255, 0.279);
+  border-radius: 10px;
+  line-height: 3rem;
+  width: 300px;
+  overflow: scroll;
+  height: 0rem;
+  animation: 0.3s slidedown ease;
+  opacity: 1;
+}
+
+@keyframes slidedown {
+  0% {
+    opacity: 1;
+    height: 10rem;
+  }
+  100% {
+    opacity: 0;
+    height: 0em;
+  }
 }
 
 .primary-menu-item {
