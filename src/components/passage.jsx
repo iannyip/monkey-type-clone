@@ -32,6 +32,16 @@ export default function Passage({ passage }) {
     }
   };
 
+  const resetPassage = () => {
+    setInputArr([]);
+    setCurrentWord('');
+    setCurrentWordIndex(0);
+    setFirstRowWordIndex(0);
+    setFirstRowYPosition(0);
+    setSecondRowWordIndex(0);
+    setSecondRowYPosition(0);
+  };
+
   // First useEffect to set text
   useEffect(() => {
     // setReferenceText(getLoremIpsumWords(40));
@@ -95,6 +105,13 @@ export default function Passage({ passage }) {
     };
   });
 
+  // Third useEffect to handle passage change
+  useEffect(() => {
+    console.log('the passsage changed; resetting passage');
+    resetPassage();
+    setReferenceText(passage);
+  }, [passage]);
+
   return (
     <div className='type-container'>
       <Progress
@@ -102,7 +119,7 @@ export default function Passage({ passage }) {
         totalWordCount={passage.split(' ').length}
       />
       <div className='passage-container'>
-        {passage.split(' ').map((word, index) => {
+        {referenceText.split(' ').map((word, index) => {
           return (
             index >= firstRowWordIndex && (
               <Word
