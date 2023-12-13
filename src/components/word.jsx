@@ -7,8 +7,8 @@ export default function Word({
   inputWord,
   isActive,
   updateCursorYPosition,
+  hasPassed,
 }) {
-  // console.log(updateCursorYPosition);
   return (
     <>
       <div className='word'>
@@ -16,8 +16,10 @@ export default function Word({
           <Letter
             key={`${wordIndex}-${letter}-${index}`}
             letter={letter}
-            isSet={!!inputWord ? inputWord[index] : false}
-            isCorrect={!!inputWord ? letter === inputWord[index] : false}
+            isSet={!!inputWord ? inputWord[index] || hasPassed : false}
+            isCorrect={
+              !!inputWord ? letter === inputWord[index] : false && hasPassed
+            }
             isActive={!!inputWord && index + 1 === inputWord.length && isActive}
             updateCursorYPosition={updateCursorYPosition}
           />

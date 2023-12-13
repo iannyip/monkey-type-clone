@@ -129,6 +129,7 @@ export default function Passage({ passage }) {
                 inputWord={index <= currentWordIndex ? inputArr[index] : []}
                 isActive={index === currentWordIndex}
                 updateCursorYPosition={updateCursorYPosition}
+                hasPassed={index < currentWordIndex}
               />
             )
           );
