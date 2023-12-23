@@ -1,36 +1,16 @@
 // 1. PACKAGES
 import axios from 'axios';
+import {
+  cleanVerseNumbers,
+  cleanBreakLines,
+  cleanWhiteSpaces,
+  removeQuotesWrapping,
+} from './textCleaners';
 // import dotenv from 'dotenv';
 // dotenv.config();
 
 // 2. CONSTANTS
 const API_URL = 'https://api.esv.org/v3/passage/text/';
-// const queryParam = 'John+11';
-
-const cleanVerseNumbers = (inputString) => {
-  const replaceSquareBrackets = (match, offset, string) => {
-    return match.replace(/\[|\]/g, '');
-  };
-  const regex = /\[\d+\]/g;
-  return inputString.replace(regex, replaceSquareBrackets);
-};
-
-const cleanBreakLines = (inputString) => {
-  const regex = /(\\n)+/g;
-  return inputString.replace(regex, ' ?n ');
-};
-
-const cleanWhiteSpaces = (inputString) => {
-  const regex = /\s{2,}/g;
-  return inputString.replace(regex, ' ');
-};
-
-const removeQuotesWrapping = (inputString) => {
-  // console.log(inputString[0] === '"');
-  // inputString.replace(/^".*/, '');
-  // inputString.replace(/"$/, '');
-  return inputString.slice(1, -1).trim();
-};
 
 // 3. AXIOS CALL
 export default async function fetchPassage(queryParam) {
