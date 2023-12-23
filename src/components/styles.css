@@ -134,7 +134,7 @@
 }
 
 .passage-container {
-  color: black;
+  color: #808080;
   height: 120px;
   overflow: hidden;
   display: flex;
@@ -149,7 +149,7 @@
 
 .word {
   display: flex;
-  color: #808080;
+  /* color: #808080; */
   margin: 4px 5px;
   position: relative;
 }

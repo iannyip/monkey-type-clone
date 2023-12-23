@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
 import Passage from './components/passage';
 import PassageSelector from './components/passageSelector';
-import { getLoremIpsumWords, getLoremIpsumParagraphs } from './lib/lorem';
+import GuidedButton from './components/guidedButton';
+import { getLoremIpsumParagraphs } from './lib/lorem';
 import fetchPassage from './lib/verse';
 import './App.css';
 
 function App() {
   const [passage, setPassage] = useState('');
   const [reference, setReference] = useState('Lorem Ipsum');
+  const [guidedMode, setGuidedMode] = useState(true);
 
   useEffect(() => {
     const samplePara = getLoremIpsumParagraphs(2);
@@ -30,6 +32,12 @@ function App() {
     setReference(newReference);
   };
 
+  const updateGuidedMode = () => {
+    setGuidedMode(!guidedMode);
+  };
+
+  console.log(`guidedMode: ${guidedMode}`);
+
   return (
     <div className='App'>
       <div className='App-body'>
@@ -38,8 +46,12 @@ function App() {
             reference={reference}
             updateReference={updateReference}
           />
+          <GuidedButton
+            guidedMode={guidedMode}
+            updateGuidedMode={updateGuidedMode}
+          />
         </div>
-        <Passage passage={passage} />
+        <Passage passage={passage} guidedMode={guidedMode} />
         <div className='footer'></div>
       </div>
     </div>

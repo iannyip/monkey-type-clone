@@ -5,7 +5,7 @@ import { getLoremIpsumParagraphs } from '../lib/lorem';
 import Progress from './progress';
 import NewPara from './newPara';
 
-export default function Passage({ passage }) {
+export default function Passage({ passage, guidedMode }) {
   const [referenceText, setReferenceText] = useState('');
   const [inputArr, setInputArr] = useState([]);
   const [currentWord, setCurrentWord] = useState('');
@@ -126,13 +126,17 @@ export default function Passage({ passage }) {
     setReferenceText(passage);
   }, [passage]);
 
+  const textStyle = {
+    color: guidedMode ? '#808080' : '#282c34',
+  };
+
   return (
     <div className='type-container'>
       <Progress
         currentWordIndex={currentWordIndex}
         totalWordCount={passage.split(' ').length}
       />
-      <div className='passage-container'>
+      <div className='passage-container' style={textStyle}>
         {referenceText.split(' ').map((word, index) => {
           if (word === '?n') {
             return (
