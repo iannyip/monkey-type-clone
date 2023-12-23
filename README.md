@@ -1,5 +1,7 @@
 # A Typing Test
 
+Go to [website ⬈] (https://monkey-type-clone-verses.vercel.app/)
+
 ![image](https://github.com/iannyip/monkey-type-clone/assets/69592180/502e6a66-d0c7-414c-be92-91f3bc39483f)
 
 
