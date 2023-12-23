@@ -138,6 +138,7 @@ export default function Passage({ passage }) {
             return (
               index >= firstRowWordIndex && (
                 <NewPara
+                  key={`${word}-${index}`}
                   hasPassed={index < currentWordIndex}
                   inputWord={index <= currentWordIndex ? inputArr[index] : []}
                 />
