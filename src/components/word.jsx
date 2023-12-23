@@ -12,6 +12,9 @@ export default function Word({
   return (
     <>
       <div className='word'>
+        {isActive && inputWord === '' && (
+          <div className='cursor' style={{ left: '-2px' }} />
+        )}
         {[...correctWord].map((letter, index) => (
           <Letter
             key={`${wordIndex}-${letter}-${index}`}

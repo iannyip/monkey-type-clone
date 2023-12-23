@@ -151,6 +151,7 @@
   display: flex;
   color: #808080;
   margin: 4px 5px;
+  position: relative;
 }
 
 .letter {
