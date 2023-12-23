@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import Word from './word';
 import './styles.css';
-import fetchPassage from '../lib/verse';
-import { getLoremIpsumWords, getLoremIpsumParagraphs } from '../lib/lorem';
+import { getLoremIpsumParagraphs } from '../lib/lorem';
 import Progress from './progress';
 import NewPara from './newPara';
 
