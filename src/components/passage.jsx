@@ -128,6 +128,8 @@ export default function Passage({ passage, guidedMode }) {
 
   const textStyle = {
     color: guidedMode ? '#808080' : '#282c34',
+    transition: '0.4s',
+    WebkitTransition: '0.4s',
   };
 
   return (
