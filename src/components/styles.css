@@ -188,3 +188,15 @@
     background: transparent;
   }
 }
+
+.new-para {
+  width: 100%;
+}
+
+.enter-symbol {
+  color: #808080;
+  font-size: 0.8rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}

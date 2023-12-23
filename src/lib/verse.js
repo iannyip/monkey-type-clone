@@ -64,38 +64,7 @@ export default async function fetchPassage(queryParam) {
     cleanedText = cleanWhiteSpaces(cleanedText);
     cleanedText = removeQuotesWrapping(cleanedText);
     return cleanedText;
-    // return cleanVerseNumbers(JSON.stringify(response.data.passages[0]));
-    // console.log({ data: response.data.passages[0] });
-    // return response.data.passages[0];
   } catch (error) {
     console.log(error.message);
   }
 }
-
-// axios({
-//   method: 'get',
-//   url: API_URL,
-//   headers:{
-//     'Authorization': 'Token ' + process.env.ESV_API_TOKEN
-//   },
-//   params: {
-//     "q": queryParam,
-//     "include-passage-references": false,
-//     "include-verse-numbers": true,
-//     "include-first-verse-numbers": true,
-//     "include-footnotes": false,
-//     "include-headings": true,
-//     "include-short-copyright": false,
-//     'indent-paragraphs':0
-//   },
-// }).then((response) => {
-//   console.log("===============");
-//   console.log(response.data);
-//   console.log(response.data.passages[0].replace(/[/[\]']+/g,""));
-//   // console.log(JSON.stringify(response.data));
-// }).catch((error) => {
-//   console.log("----------------");
-//   console.log(error);
-//   console.log(error.name);
-//   console.log(error.message);
-// })

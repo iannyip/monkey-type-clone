@@ -4,6 +4,7 @@ import './styles.css';
 import fetchPassage from '../lib/verse';
 import { getLoremIpsumWords, getLoremIpsumParagraphs } from '../lib/lorem';
 import Progress from './progress';
+import NewPara from './newPara';
 
 export default function Passage({ passage }) {
   const [referenceText, setReferenceText] = useState('');
@@ -84,11 +85,25 @@ export default function Passage({ passage }) {
       }
     };
 
+    const handleEnter = () => {
+      if (referenceText.split(' ')[currentWordIndex + 1] === '?n') {
+        setInputArr([...inputArr, '?n', '']);
+        setCurrentWord('');
+        setCurrentWordIndex(currentWordIndex + 2);
+      } else if (referenceText.split(' ')[currentWordIndex] === '?n') {
+        setInputArr([...inputArr.slice(0, inputArr.length - 1), '?n', '']);
+        setCurrentWord('');
+        setCurrentWordIndex(currentWordIndex + 1);
+      }
+    };
+
     const handleKeyDown = (event) => {
       // console.log(`----- User pressed: ${event.code}, ${event.key}`);
       const regex = /^[a-zA-Z0-9\W]$/;
       if (event.key.match(/\s/g)) {
         handleSpacebar();
+      } else if (event.key.match(/Enter/g)) {
+        handleEnter();
       } else if (event.key.match(regex)) {
         event.preventDefault();
         validateAndUpdateInput(event);
@@ -120,19 +135,30 @@ export default function Passage({ passage }) {
       />
       <div className='passage-container'>
         {referenceText.split(' ').map((word, index) => {
-          return (
-            index >= firstRowWordIndex && (
-              <Word
-                key={`${word}-${index}`}
-                wordIndex={index}
-                correctWord={word}
-                inputWord={index <= currentWordIndex ? inputArr[index] : []}
-                isActive={index === currentWordIndex}
-                updateCursorYPosition={updateCursorYPosition}
-                hasPassed={index < currentWordIndex}
-              />
-            )
-          );
+          if (word === '?n') {
+            return (
+              index >= firstRowWordIndex && (
+                <NewPara
+                  hasPassed={index < currentWordIndex}
+                  inputWord={index <= currentWordIndex ? inputArr[index] : []}
+                />
+              )
+            );
+          } else {
+            return (
+              index >= firstRowWordIndex && (
+                <Word
+                  key={`${word}-${index}`}
+                  wordIndex={index}
+                  correctWord={word}
+                  inputWord={index <= currentWordIndex ? inputArr[index] : []}
+                  isActive={index === currentWordIndex}
+                  updateCursorYPosition={updateCursorYPosition}
+                  hasPassed={index < currentWordIndex}
+                />
+              )
+            );
+          }
         })}
       </div>
     </div>
