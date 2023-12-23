@@ -19,7 +19,6 @@ export default function GuidedButton({ guidedMode, updateGuidedMode }) {
   });
 
   const handleBtnToggle = (event) => {
-    console.log(event);
     updateGuidedMode(event.target.checked);
   };
 
