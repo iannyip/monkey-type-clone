@@ -1,6 +1,6 @@
 # A Typing Test
 
-Go to [website ⬈] (https://monkey-type-clone-verses.vercel.app/)
+Go to [website ⬈](https://monkey-type-clone-verses.vercel.app/)
 
 ![image](https://github.com/iannyip/monkey-type-clone/assets/69592180/502e6a66-d0c7-414c-be92-91f3bc39483f)
 
@@ -16,10 +16,14 @@ You can visit this site at:
 
 https://monkey-type-clone-verses.vercel.app/
 
+
+
 ## Key features:
 
 - Validation of text input
 - Fetching of verses from [ESV api](https://api.esv.org/)
+
+
 
 ## Local Development
 
