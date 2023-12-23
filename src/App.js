@@ -32,11 +32,9 @@ function App() {
     setReference(newReference);
   };
 
-  const updateGuidedMode = () => {
-    setGuidedMode(!guidedMode);
+  const updateGuidedMode = (toggleVal) => {
+    setGuidedMode(toggleVal);
   };
-
-  console.log(`guidedMode: ${guidedMode}`);
 
   return (
     <div className='App'>
