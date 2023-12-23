@@ -1,4 +1,5 @@
 import { LoremIpsum } from 'lorem-ipsum';
+import { cleanBreakLines, removeQuotesWrapping } from './textCleaners';
 
 const lorem = new LoremIpsum({
   sentencesPerParagraph: {
@@ -16,7 +17,11 @@ export function getLoremIpsumWords(wordCount) {
 }
 
 export function getLoremIpsumParagraphs(paraCount) {
-  return lorem.generateParagraphs(paraCount);
+  const rawText = lorem.generateParagraphs(paraCount);
+  let cleanedText = JSON.stringify(rawText);
+  cleanedText = cleanBreakLines(cleanedText);
+  cleanedText = removeQuotesWrapping(cleanedText);
+  return cleanedText;
 }
 
 // console.log(lorem.generateSentences(5));
