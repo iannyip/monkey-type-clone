@@ -10,8 +10,7 @@ Go to [website ⬈](https://monkey-type-clone-verses.vercel.app/)
 The goal of this project is to :
 
 1. Recreate the logic behind monkeytype.com.
-    1. testing here
-3. Create a tool to assist in memory work.
+2. Create a tool to assist in memory work.
 
 You can visit this site at:
 
